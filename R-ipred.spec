@@ -4,15 +4,13 @@
 #
 Name     : R-ipred
 Version  : 0.9.8
-Release  : 18
+Release  : 19
 URL      : https://cran.r-project.org/src/contrib/ipred_0.9-8.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ipred_0.9-8.tar.gz
 Summary  : Improved Predictors
 Group    : Development/Tools
 License  : GPL-2.0 GPL-2.0+
 Requires: R-ipred-lib = %{version}-%{release}
-Requires: R-Rcpp
-Requires: R-lava
 BuildRequires : R-Rcpp
 BuildRequires : R-TH.data
 BuildRequires : R-lava
@@ -42,10 +40,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552876635
+export SOURCE_DATE_EPOCH=1552892693
 
 %install
-export SOURCE_DATE_EPOCH=1552876635
+export SOURCE_DATE_EPOCH=1552892693
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
