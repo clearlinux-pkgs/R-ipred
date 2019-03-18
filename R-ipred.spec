@@ -4,19 +4,18 @@
 #
 Name     : R-ipred
 Version  : 0.9.8
-Release  : 16
+Release  : 17
 URL      : https://cran.r-project.org/src/contrib/ipred_0.9-8.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ipred_0.9-8.tar.gz
 Summary  : Improved Predictors
 Group    : Development/Tools
 License  : GPL-2.0 GPL-2.0+
 Requires: R-ipred-lib = %{version}-%{release}
-Requires: R-TH.data
-Requires: R-mlbench
-Requires: R-party
-Requires: R-prodlim
-Requires: R-randomForest
+Requires: R-Rcpp
+Requires: R-lava
+BuildRequires : R-Rcpp
 BuildRequires : R-TH.data
+BuildRequires : R-lava
 BuildRequires : R-mlbench
 BuildRequires : R-party
 BuildRequires : R-prodlim
@@ -43,10 +42,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1541476736
+export SOURCE_DATE_EPOCH=1552876635
 
 %install
-export SOURCE_DATE_EPOCH=1541476736
+export SOURCE_DATE_EPOCH=1552876635
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -82,8 +81,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library ipred|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  ipred || :
 
 
 %files
@@ -119,7 +117,13 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/ipred/help/paths.rds
 /usr/lib64/R/library/ipred/html/00Index.html
 /usr/lib64/R/library/ipred/html/R.css
-/usr/lib64/R/library/ipred/libs/symbols.rds
+/usr/lib64/R/library/ipred/tests/Examples/ipred-Ex.Rout.save
+/usr/lib64/R/library/ipred/tests/ipred-bugs.R
+/usr/lib64/R/library/ipred/tests/ipred-bugs.Rout.save
+/usr/lib64/R/library/ipred/tests/ipred-segfault.R
+/usr/lib64/R/library/ipred/tests/ipred-segfault.Rout.save
+/usr/lib64/R/library/ipred/tests/ipred-smalltest.R
+/usr/lib64/R/library/ipred/tests/ipred-smalltest.Rout.save
 
 %files lib
 %defattr(-,root,root,-)
