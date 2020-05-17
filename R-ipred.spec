@@ -4,23 +4,20 @@
 #
 Name     : R-ipred
 Version  : 0.9.9
-Release  : 31
+Release  : 32
 URL      : https://cran.r-project.org/src/contrib/ipred_0.9-9.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ipred_0.9-9.tar.gz
 Summary  : Improved Predictors
 Group    : Development/Tools
 License  : GPL-2.0 GPL-2.0+
 Requires: R-ipred-lib = %{version}-%{release}
+Requires: R-TH.data
+Requires: R-mlbench
 Requires: R-prodlim
-BuildRequires : R-Rcpp
 BuildRequires : R-TH.data
-BuildRequires : R-lava
 BuildRequires : R-mlbench
-BuildRequires : R-party
 BuildRequires : R-prodlim
-BuildRequires : R-randomForest
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
 bagging for classification, regression and survival problems 
@@ -36,21 +33,22 @@ lib components for the R-ipred package.
 
 %prep
 %setup -q -c -n ipred
+cd %{_builddir}/ipred
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571848052
+export SOURCE_DATE_EPOCH=1589752144
 
 %install
-export SOURCE_DATE_EPOCH=1571848052
+export SOURCE_DATE_EPOCH=1589752144
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
