@@ -4,7 +4,7 @@
 #
 Name     : R-ipred
 Version  : 0.9.11
-Release  : 39
+Release  : 40
 URL      : https://cran.r-project.org/src/contrib/ipred_0.9-11.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ipred_0.9-11.tar.gz
 Summary  : Improved Predictors
